@@ -1,0 +1,102 @@
+ /* Custom CSS for background and animations */
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scroll from animations */
+            
+        }
+
+        /* Background image container */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2; /* Below content, above overlay */
+            /* Placeholder image for the background. You can replace this URL with your desired image. */
+            background-image: url(./Assets/image.jpg);
+            background-size: cover;
+            background-position: center;
+            /*filter: blur(10px); /* Slightly blur the background for better readability */
+        }
+
+        /* Overlay for background image to ensure text readability */
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Above background image, below content */
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white overlay */
+        }
+
+        /* Marquee animation for skills */
+        .skills-marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            width: 100%;
+        }
+
+        .skills-marquee-content {
+            display: inline-block; /* Allows content to flow horizontally */
+            animation: marquee-left 30s linear infinite; /* Adjust duration for speed */
+            padding-right: 2rem; /* Space between duplicated content */
+        }
+
+        .skills-marquee-content:hover {
+            animation-play-state: paused; /* Pause animation on hover */
+        }
+
+        /* Keyframes for the marquee animation, moving content from right to left */
+        @keyframes marquee-left {
+            0% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(-100%); /* Moves content to the left */
+            }
+        }
+
+        /* Styling for individual skill items within the marquee */
+        .skill-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-right: 1.5rem; /* Space between individual skill items */
+            background-color: #e2e8f0; /* Tailwind gray-200 */
+            color: #4a5568; /* Tailwind gray-800 */
+            padding: 0.5rem 1.25rem; /* px-5 py-2 */
+            border-radius: 9999px; /* rounded-full */
+            font-weight: 500; /* font-medium */
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+            transition: background-color 0.2s ease-in-out; /* hover:bg-gray-300 */
+        }
+
+        .skill-item:hover {
+            background-color: #cbd5e0; /* Tailwind gray-300 */
+        }
+
+        /* Wrapper for main content to ensure it's positioned above the background */
+        .main-content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Container styling for consistent width and centering */
+        .container {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        /* Ensure rounded corners on all elements as per instructions */
+        .rounded-md, .rounded-lg, .rounded-full {
+            border-radius: 0.5rem; /* Default rounded */
+        }
+        .rounded-full {
+            border-radius: 9999px; /* Fully rounded */
+        }
